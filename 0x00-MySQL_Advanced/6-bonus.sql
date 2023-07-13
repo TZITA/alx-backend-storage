@@ -11,7 +11,6 @@ BEGIN
         SET project_id = LAST_INSERT_ID();
     END IF;
 
-    CREATE TABLE IF NOT EXISTS correction;
-    INSERT INTO correction (user_id, project_id, score) VALUES (user_id, project_id, score);
+    INSERT INTO corrections (user_id, project_id, score) VALUES (user_id, project_id, score);
 END //
 DELIMITER ;
