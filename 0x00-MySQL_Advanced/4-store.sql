@@ -2,8 +2,6 @@
 CREATE TRIGGER dec_quantity
 AFTER INSERT ON orders
 FOR EACH ROW
-BEGIN
-	UPDATE items
-	SET quantity = quantity - NEW.number
-	WHERE name = NEW.item_name;
-END;
+UPDATE items
+SET quantity = quantity - NEW.number
+WHERE name LIKE NEW.item_name;
