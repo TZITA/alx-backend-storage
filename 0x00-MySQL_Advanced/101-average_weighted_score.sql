@@ -30,7 +30,7 @@ BEGIN
     WHERE corrections.user_id = user_id;
     
     IF total_weight > 0 THEN
-      SET average_score = total_score / total_weight;
+      SET ave_score = total_score / total_weight;
     ELSE
       SET ave_score = 0;
     END IF;
