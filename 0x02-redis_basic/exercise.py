@@ -20,8 +20,8 @@ class Cache:
 
     def get(self, key, fn=None):
         """Convert the data back to the desired format"""
-        val = self._redis(key)
-        if !val:
+        val = self._redis.get(key)
+        if val is None:
             return None
         if fn:
             return fn(val)
