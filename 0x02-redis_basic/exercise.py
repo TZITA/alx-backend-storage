@@ -17,3 +17,15 @@ class Cache:
         key = str(uuid4())
         self._redis.set(key, data)
         return key
+
+    def get(self, key, fn=None):
+        """Convert the data back to the desired format"""
+        return self._redis.get(key)
+
+    def get_str(self):
+        """Automatically parametrize Cache.get to str"""
+        return str(self.get())
+
+    def get_int(self):
+        """Automatically parametrize Cache.get to int"""
+        return int(self.get())
