@@ -1,0 +1,4 @@
+# NoSQL
+## Task 0
+## List all databases
+A script that lists all databases in MongoDB.
