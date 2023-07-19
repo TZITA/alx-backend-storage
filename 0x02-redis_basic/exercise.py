@@ -20,12 +20,17 @@ class Cache:
 
     def get(self, key, fn=None):
         """Convert the data back to the desired format"""
-        return self._redis.get(key)
+        val = self._redis(key)
+        if !val:
+            return None
+        if fn:
+            return fn(val)
+        return val
 
-    def get_str(self):
+    def get_str(self, key):
         """Automatically parametrize Cache.get to str"""
-        return str(self.get())
+        return self.get(key, fn=lambda d: d.decode("utf-8"))
 
-    def get_int(self):
+    def get_int(self, key):
         """Automatically parametrize Cache.get to int"""
-        return int(self.get())
+        return self.get(key, fn=int)
